@@ -1,0 +1,43 @@
+# Pythia specific ignores
+var/
+graveyard/
+
+# GOGLAND ignores
+.project
+*.idea
+
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
+.glide/
+
+# GoPath includes
+bin/
+pkg/
+src/
+
+# Gradle ignores
+.gradle
+/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+gradle/wrapper/gradle-wrapper.properties
