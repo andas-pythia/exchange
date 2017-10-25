@@ -1,0 +1,24 @@
+plugins {
+    id 'com.aoe.jenkins-job-dsl' version '2.1.0'
+}
+
+apply plugin: 'groovy'
+apply plugin: "com.aoe.jenkins-job-dsl"
+
+ext {
+    jobDslVersion = '1.66'
+    jenkinsVersion = '2.60.3'
+}
+
+jobDsl {
+    // Base directory where the DSL scripts reside
+    sourceDir './jobs'
+    resourceDir './resources'
+
+    // Version of Job DSL you want to use
+    version = jobDslVersion // default
+
+    // By default JCenter and jenkins-release are added as repositories
+    // If you don't like this set it to false
+    addRepositories = true // default
+}
