@@ -1,0 +1,57 @@
+/*
+
+Maintained by Nic Seltzer <nic@nicseltzer.com>
+
+*/
+
+
+plugins {
+    id 'nebula.netflixoss' version '3.4.0'
+    id 'net.saliman.cobertura' version '2.2.8'
+    id 'nebula.provided-base' version '3.0.3'
+    id 'nebula.compile-api' version '5.1.4'
+}
+
+ext {
+    githubProjectName = rootProject.name
+}
+
+apply plugin: "net.saliman.cobertura"
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'nebula.netflixoss'
+    apply plugin: 'java'
+    apply plugin: 'nebula.provided-base'
+    apply plugin: 'nebula.compile-api'
+
+    eclipse {
+        classpath {
+            // include 'provided' dependencies on the classpath
+            plusConfigurations += [configurations.provided]
+            downloadSources = true
+            downloadJavadoc = true
+        }
+    }
+
+    idea {
+        module {
+            // include 'provided' dependencies on the classpath
+            scopes.COMPILE.plus += [configurations.provided]
+        }
+    }
+
+    group = "com.andas.pythia.${githubProjectName}"
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
